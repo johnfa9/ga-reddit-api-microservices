@@ -1,6 +1,6 @@
 CREATE TABLE users (
     id SERIAL,
-    user_name VARCHAR(100) NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50)
+    _email VARCHAR(100) NOT NULL,
+    _password VARCHAR(50),
+    user_name VARCHAR(50)
 );

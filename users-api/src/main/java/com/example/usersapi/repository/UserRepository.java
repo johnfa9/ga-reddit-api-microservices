@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    public List<User> findByFirstNameContainsOrLastNameContains(String firstName, String lastName);
+    //public List<User> findByFirstNameContainsOrLastNameContains(String firstName, String lastName);
+    public List<User> findByUsername(String username);
 }

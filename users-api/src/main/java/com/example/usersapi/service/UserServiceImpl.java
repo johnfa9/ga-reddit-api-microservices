@@ -14,18 +14,21 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Iterable<User> getAll() {
+
         return userRepository.findAll();
     }
 
     @Override
     public User searchById(long id) {
+
         return userRepository.findById(id).get();
     }
 
     @Override
     public Iterable<User> searchByName(String name) {
         String normalized = name.trim().toLowerCase();
-        return userRepository.findByFirstNameContainsOrLastNameContains(normalized, normalized);
+        //return userRepository.findByFirstNameContainsOrLastNameContains(normalized, normalized);
+        return userRepository.findByUsername(normalized);
     }
 
     @Override
@@ -43,9 +46,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public HttpStatus updateUser(long id, User userRequest) {
         User user = userRepository.findById(id).get();
-        user.setUserName(userRequest.getUserName());
-        user.setFirstName(userRequest.getFirstName());
-        user.setLastName(userRequest.getLastName());
+        user.setEmail(userRequest.getEmail());
+        user.setPassword(userRequest.getPassword());
+        user.setUsername(userRequest.getUsername());
         userRepository.save(user);
         return HttpStatus.OK;
     }
