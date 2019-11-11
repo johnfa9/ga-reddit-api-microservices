@@ -27,22 +27,22 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Iterable<Post> searchByTitle(String title) {
+    public Iterable<Post> searchByText(String text) {
 
-        return postRepository.findByTitleContaining(title);
+        return postRepository.findByTextContaining(text);
     }
 
-    @Override
-    public List<Post> searchByLength(int min, int max) {
-
-        return postRepository.findByLengthBetween(min, max);
-    }
-
-    @Override
-    public List<Post> searchByContent(String content) {
-
-        return postRepository.findByContentContaining(content);
-    }
+//    @Override
+//    public List<Post> searchByLength(int min, int max) {
+//
+//        return postRepository.findByLengthBetween(min, max);
+//    }
+//
+//    @Override
+//    public List<Post> searchByContent(String content) {
+//
+//        return postRepository.findByContentContaining(content);
+//    }
 
     @Override
     public HttpStatus deletePost(long id) {
@@ -59,9 +59,10 @@ public class PostServiceImpl implements PostService{
     @Override
     public HttpStatus updatePost(long id, Post PostRequest) {
         Post Post = postRepository.findById(id).get();
-        Post.setTitle(PostRequest.getTitle());
-        Post.setLength(PostRequest.getLength());
-        Post.setContent(PostRequest.getContent());
+        Post.setText(PostRequest.getText());
+//        Post.setTitle(PostRequest.getTitle());
+//        Post.setLength(PostRequest.getLength());
+//        Post.setContent(PostRequest.getContent());
         postRepository.save(Post);
         return HttpStatus.OK;
     }
