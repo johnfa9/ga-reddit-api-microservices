@@ -6,7 +6,12 @@ VALUES ('quinto@mail.com', '123', 'quinto'),
 ('1337codr@mail.com', '123', 'hax'),
 ('badstash@mail.com', '123', 'chaplin');
 
-INSERT INTO posts(_text)
-VALUES ('disco party'),
-('the hampsterdance song'),
+INSERT INTO posts(_title, _description)
+VALUES ('disco party','This is big'),
+('the hampsterdance song', 'party on'),
+('owa', 'mark my words');
+
+INSERT INTO comments(_text)
+VALUES ('disco party is fun'),
+('the hampsterdance song is fun'),
 ('owa');
