@@ -14,15 +14,19 @@ public class Post {
 //    private int length;
 //    private String content;
 
-    @Column(name="_text")
-    private String text;
+    @Column(name="_title")
+    private String title;
+
+    @Column(name="_description")
+    private String description;
 
     public Post() {}
 
     //public Post(long id, String title, int length, String content)
-    public Post(long id, String text) {
+    public Post(long id, String title, String description) {
         this.id = id;
-        this.text=text;
+        this.title=title;
+        this.description=description;
 
 //        this.title = title;
 //        this.length = length;
@@ -70,20 +74,28 @@ public class Post {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append("Post{")
                 .append("id:").append(id)
-                .append(",text:").append(text)
-//                .append(",length:").append(length)
+                .append(",title:").append(title)
+                .append(",description:").append(description)
 //                .append(",content:").append(content)
                 .append("}");
         return s.toString();

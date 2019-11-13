@@ -29,7 +29,7 @@ public class PostServiceImpl implements PostService{
     @Override
     public Iterable<Post> searchByText(String text) {
 
-        return postRepository.findByTextContaining(text);
+        return postRepository.findByTitleContaining(text);
     }
 
 //    @Override
@@ -59,8 +59,8 @@ public class PostServiceImpl implements PostService{
     @Override
     public HttpStatus updatePost(long id, Post PostRequest) {
         Post Post = postRepository.findById(id).get();
-        Post.setText(PostRequest.getText());
-//        Post.setTitle(PostRequest.getTitle());
+        Post.setTitle(PostRequest.getTitle());
+        Post.setDescription(PostRequest.getDescription());
 //        Post.setLength(PostRequest.getLength());
 //        Post.setContent(PostRequest.getContent());
         postRepository.save(Post);

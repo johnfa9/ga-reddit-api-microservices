@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends CrudRepository<Post, Long> {
-    List<Post> findByTextContaining(String text);
+    List<Post> findByTitleContaining(String text);
 //    List<Post> findByLengthBetween(int min, int max);
 //    List<Post> findByContentContaining(String content);
 }
