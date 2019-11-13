@@ -9,62 +9,27 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
-//    @Column(name = "duration")
-//    private int length;
-//    private String content;
-
-    @Column(name="_title")
+    @Column(name="title")
     private String title;
 
-    @Column(name="_description")
+    @Column(name="description")
     private String description;
+
+    @Column(name = "user_id")
+    private long userId;
 
     public Post() {}
 
-    //public Post(long id, String title, int length, String content)
-    public Post(long id, String title, String description) {
-        this.id = id;
-        this.title=title;
-        this.description=description;
-
-//        this.title = title;
-//        this.length = length;
-//        this.content = content;
-    }
-
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
+//    //public Post(long id, String title, int length, String content)
+//    public Post(long id, String title, String description) {
 //        this.id = id;
-//    }
+//        this.title=title;
+//        this.description=description;
 //
-//    public String getTitle() {
-//        return title;
+////        this.title = title;
+////        this.length = length;
+////        this.content = content;
 //    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public int getLength() {
-//        return length;
-//    }
-//
-//    public void setLength(int length) {
-//        this.length = length;
-//    }
-//
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
-
 
     public long getId() {
         return id;
@@ -88,6 +53,14 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String toString() {

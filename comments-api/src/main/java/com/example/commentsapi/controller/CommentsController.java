@@ -45,7 +45,7 @@ public class CommentsController {
     }
 
     @PostMapping("/create")
-    public HttpStatus deleteComment(@RequestBody Comment Comment) {
+    public HttpStatus createComment(@RequestBody Comment Comment) {
         return commentService.createComment(Comment);
     }
 

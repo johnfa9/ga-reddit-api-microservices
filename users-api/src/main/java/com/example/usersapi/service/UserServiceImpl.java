@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public HttpStatus createUser(User user) {
+        System.out.println(user);
         userRepository.save(user);
         return HttpStatus.OK;
     }

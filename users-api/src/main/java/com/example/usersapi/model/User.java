@@ -9,60 +9,23 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @Column(name = "user_name")
-//    private String userName;
-    @Column(name = "_email")
+    @Column(name = "email")
     private String email;
-//    @Column(name = "first_name")
-//    private String firstName;
-    @Column(name = "_password")
+
+    @Column(name = "password")
     private String password;
 
-//    @Column(name = "last_name")
-//    private String lastName;
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String username;
 
     public User() {}
 
-    //public User(long id, String userName, String firstName, String lastName)
-    public User(long id, String email, String password, String username) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.username = username;
-    }
-
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
+//    //public User(long id, String userName, String firstName, String lastName)
+//    public User(long id, String email, String password, String username) {
 //        this.id = id;
-//    }
-//
-//    public String getUserName() {
-//        return userName;
-//    }
-//
-//    public void setUserName(String userName) {
-//        this.userName = userName;
-//    }
-//
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
+//        this.email = email;
+//        this.password = password;
+//        this.username = username;
 //    }
 
     public long getId() {
