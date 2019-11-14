@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService{
     public JwtResponse createUser(User user) {
         user.setPassword(encoder().encode(user.getPassword()));
         if(userRepository.save(user) != null){
-            return new JwtResponse(jwtUtil.generateToken(String.valueOf(user.getId())), user.getUsername()) ;
+            return new JwtResponse(jwtUtil.generateToken(user.getUsername()), user.getUsername()) ;
         }
 
         return null;

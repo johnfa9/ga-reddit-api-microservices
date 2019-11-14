@@ -48,7 +48,8 @@ public class UsersController {
     }
 
     @PatchMapping("/update/{id}")
-    public HttpStatus updateUser(@PathVariable long id, @RequestBody User userRequest) {
+    public HttpStatus updateUser(@PathVariable long id, @RequestBody User userRequest, @RequestHeader("userid") long userId) {
+        System.out.println(userId);
         return userService.updateUser(id, userRequest);
     }
     //testing ok
