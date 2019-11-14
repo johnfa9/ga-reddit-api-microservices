@@ -11,11 +11,11 @@ public interface PostService {
 
     public Post searchById(long id);
 
-    public Iterable<Post> searchByText(String text);
+    public Iterable<Post> searchByTitle(String title);
 
-//    public List<Post> searchByLength(int min, int max);
-//
-//    public List<Post> searchByContent(String content);
+    public List<Post> searchByLength(int min, int max);
+
+    public List<Post> searchByContent(String content);
 
     public HttpStatus deletePost(long id);
 

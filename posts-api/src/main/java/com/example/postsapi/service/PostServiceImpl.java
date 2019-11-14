@@ -27,22 +27,22 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Iterable<Post> searchByText(String text) {
+    public Iterable<Post> searchByTitle(String title) {
 
         return postRepository.findByTitleContaining(text);
     }
 
-//    @Override
-//    public List<Post> searchByLength(int min, int max) {
-//
-//        return postRepository.findByLengthBetween(min, max);
-//    }
-//
-//    @Override
-//    public List<Post> searchByContent(String content) {
-//
-//        return postRepository.findByContentContaining(content);
-//    }
+    @Override
+    public List<Post> searchByLength(int min, int max) {
+
+        return postRepository.findByLengthBetween(min, max);
+    }
+
+    @Override
+    public List<Post> searchByContent(String content) {
+
+        return postRepository.findByContentContaining(content);
+    }
 
     @Override
     public HttpStatus deletePost(long id) {

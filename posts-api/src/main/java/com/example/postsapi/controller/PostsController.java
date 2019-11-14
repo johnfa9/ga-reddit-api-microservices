@@ -24,33 +24,33 @@ public class PostsController {
         return postService.searchById(id);
     }
 
-//    @GetMapping("/searchTitle/{title}")
-//    public Iterable<Post> searchByTitle(@PathVariable String title) {
-//        return postService.searchByTitle(title);
-//    }
-//
-//    @GetMapping("/searchLength")
-//    public List<Post> searchByLength(@RequestParam int min, @RequestParam int max) {
-//        return postService.searchByLength(min, max);
-//    }
-//
-//    @GetMapping("/searchContent/{content}")
-//    public List<Post> searchByContent(@PathVariable String content) {
-//        return postService.searchByContent(content);
-//    }
+    @GetMapping("/searchTitle/{title}")
+    public Iterable<Post> searchByTitle(@PathVariable String title) {
+        return postService.searchByTitle(title);
+    }
+
+    @GetMapping("/searchLength")
+    public List<Post> searchByLength(@RequestParam int min, @RequestParam int max) {
+        return postService.searchByLength(min, max);
+    }
+
+    @GetMapping("/searchContent/{content}")
+    public List<Post> searchByContent(@PathVariable String content) {
+        return postService.searchByContent(content);
+    }
 
     @DeleteMapping("/delete/{id}")
-    public HttpStatus deletePost(@PathVariable long id) {
+    public HttpStatus deleteSong(@PathVariable long id) {
         return postService.deletePost(id);
     }
 
     @PostMapping("/create")
-    public HttpStatus createPost(@RequestBody Post Post) {
+    public HttpStatus createSong(@RequestBody Post Post) {
         return postService.createPost(Post);
     }
 
     @PatchMapping("/update/{id}")
-    public HttpStatus updatePost(@PathVariable long id, @RequestBody Post postRequest) {
+    public HttpStatus updateSong(@PathVariable long id, @RequestBody Post postRequest) {
         return postService.updatePost(id, postRequest);
     }
 }
