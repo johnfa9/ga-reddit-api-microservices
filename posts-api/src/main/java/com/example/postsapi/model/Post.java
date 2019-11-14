@@ -65,7 +65,7 @@ public class Post {
 
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append("User{")
+        s.append("Post{")
                 .append("id:").append(id)
                 .append(",title:").append(title)
                 .append(",description:").append(description)
