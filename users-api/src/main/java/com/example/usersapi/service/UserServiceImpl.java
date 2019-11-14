@@ -1,16 +1,33 @@
 package com.example.usersapi.service;
 
+import com.example.usersapi.config.JwtUtil;
+import com.example.usersapi.model.JwtResponse;
 import com.example.usersapi.model.User;
 import com.example.usersapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserRepository userRepository;
+
+    @Bean
+    public PasswordEncoder encoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @Override
     public Iterable<User> getAll() {
@@ -38,10 +55,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public HttpStatus createUser(User user) {
-        System.out.println(user);
-        userRepository.save(user);
-        return HttpStatus.OK;
+    public JwtResponse createUser(User user) {
+        user.setPassword(encoder().encode(user.getPassword()));
+        if(userRepository.save(user) != null){
+            return new JwtResponse(jwtUtil.generateToken(String.valueOf(user.getId())), user.getUsername()) ;
+        }
+
+        return null;
     }
 
     @Override

@@ -19,9 +19,9 @@ public class JwtUtil implements Serializable {
     @Value("${jwt.secret}")
     private String secret;
 
-    public String generateToken(String username) {
+    public String generateToken(String userId) {
         Map<String, Object> claims = new HashMap<>();
-        return doGenerateToken(claims, username);
+        return doGenerateToken(claims, userId);
     }
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {

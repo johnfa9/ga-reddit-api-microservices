@@ -1,6 +1,7 @@
 package com.example.usersapi.controller;
 
 
+import com.example.usersapi.model.JwtResponse;
 import com.example.usersapi.model.User;
 import com.example.usersapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,7 @@ public class UsersController {
     }
 
     @PostMapping("/create")
-    public HttpStatus createUser(@RequestBody User user) {
-
+    public JwtResponse createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
     //testing error
