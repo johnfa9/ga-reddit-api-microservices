@@ -10,11 +10,13 @@ public interface UserService {
 
     public User searchById(long id);
 
-    public Iterable<User> searchByName(String name);
+    public User getUserByUsername(String name);
 
     public HttpStatus deleteUser(long id);
 
     public JwtResponse createUser(User user);
+
+    public JwtResponse login(User user);
 
     public HttpStatus updateUser(long id, User userRequest);
 }

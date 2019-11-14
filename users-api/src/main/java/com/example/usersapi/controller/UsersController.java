@@ -6,6 +6,7 @@ import com.example.usersapi.model.User;
 import com.example.usersapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,8 +26,8 @@ public class UsersController {
     }
 
     @GetMapping("/search/{name}")
-    public Iterable<User> searchByName(@PathVariable String name) {
-        return userService.searchByName(name);
+    public User searchByName(@PathVariable String name) {
+        return userService.getUserByUsername(name);
     }  //works with firstname
 
     @DeleteMapping("/delete/{id}")
@@ -40,6 +41,11 @@ public class UsersController {
         return userService.createUser(user);
     }
     //testing error
+
+    @PostMapping("/login")
+    public JwtResponse login(@RequestBody User user) {
+        return userService.login(user);
+    }
 
     @PatchMapping("/update/{id}")
     public HttpStatus updateUser(@PathVariable long id, @RequestBody User userRequest) {
