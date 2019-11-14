@@ -41,12 +41,6 @@ public class UserServiceImpl implements UserService{
         return userRepository.findById(id).get();
     }
 
-    @Override
-    public Iterable<User> searchByName(String name) {
-        String normalized = name.trim().toLowerCase();
-        //return userRepository.findByFirstNameContainsOrLastNameContains(normalized, normalized);
-        return userRepository.findByUsername(normalized);
-    }
 
     @Override
     public HttpStatus deleteUser(long id) {
@@ -62,6 +56,29 @@ public class UserServiceImpl implements UserService{
         }
 
         return null;
+    }
+
+
+    @Override
+    public JwtResponse login(User user) {
+        User foundUser = userRepository.login(user.getEmail());
+        if (foundUser != null && encoder().matches(user.getPassword(), foundUser.getPassword())) {
+            String token = jwtUtil.generateToken(foundUser.getUsername());
+            return new JwtResponse(token, foundUser.getUsername());
+        }
+        return null;
+    }
+
+//    @Override
+//    public Iterable<User> searchByName(String name) {
+//        String normalized = name.trim().toLowerCase();
+//        //return userRepository.findByFirstNameContainsOrLastNameContains(normalized, normalized);
+//        return userRepository.findByUsername(normalized);
+//    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     @Override
