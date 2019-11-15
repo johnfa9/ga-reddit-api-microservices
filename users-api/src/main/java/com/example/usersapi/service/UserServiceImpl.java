@@ -84,9 +84,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public HttpStatus updateUser(long id, User userRequest) {
         User user = userRepository.findById(id).get();
-        user.setEmail(userRequest.getEmail());
+//        user.setEmail(userRequest.getEmail());
         user.setPassword(userRequest.getPassword());
-        user.setUsername(userRequest.getUsername());
+//        user.setUsername(userRequest.getUsername());
         userRepository.save(user);
         return HttpStatus.OK;
     }
