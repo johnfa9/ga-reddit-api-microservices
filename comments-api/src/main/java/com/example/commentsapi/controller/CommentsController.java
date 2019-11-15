@@ -44,9 +44,17 @@ public class CommentsController {
         return commentService.deleteComment(id);
     }
 
+
+
+
+//    @PostMapping("/create")
+//    public HttpStatus createComment(@RequestBody Comment Comment) {
+//        return commentService.createComment(Comment);
+//    }
+
     @PostMapping("/create")
-    public HttpStatus createComment(@RequestBody Comment Comment) {
-        return commentService.createComment(Comment);
+    public HttpStatus createComment(@RequestBody Comment comment, @RequestHeader("userid") long userId) {
+        return commentService.createComment(comment, userId);
     }
 
     @PatchMapping("/update/{id}")

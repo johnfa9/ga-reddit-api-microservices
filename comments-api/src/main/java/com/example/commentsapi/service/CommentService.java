@@ -19,7 +19,7 @@ public interface CommentService {
 
     public HttpStatus deleteComment(long id);
 
-    public HttpStatus createComment(Comment Comment);
+    public HttpStatus createComment(Comment comment, long userId);
 
     public HttpStatus updateComment(long id, Comment CommentRequest);
 }
