@@ -2,18 +2,25 @@ package com.example.usersapi.controller;
 
 
 import com.example.usersapi.model.JwtResponse;
+import com.example.usersapi.model.Post;
 import com.example.usersapi.model.User;
+import com.example.usersapi.service.UserPostService;
 import com.example.usersapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class UsersController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserPostService userPostService;
 
     @GetMapping("/all")
     public Iterable<User> getAll() {
@@ -53,4 +60,14 @@ public class UsersController {
         return userService.updateUser(id, userRequest);
     }
     //testing ok
+
+    @GetMapping("/{userId}/posts")
+    public List<Post> getSongsByUser(@PathVariable long userId){
+        return userPostService.getPostsByUser(userId);
+    }
+
+    @PutMapping("/{userId}/{postId}")
+    public Post save(@PathVariable long userId, @PathVariable long postId){
+        return userPostService.save(userId, postId);
+    }
 }
