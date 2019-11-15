@@ -2,6 +2,7 @@ package com.example.postsapi.service;
 
 import com.example.postsapi.model.Post;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.List;
 
@@ -19,7 +20,9 @@ public interface PostService {
 
     public HttpStatus deletePost(long id);
 
-    public HttpStatus createPost(Post Post);
+    public HttpStatus createPost(Post Post, long userId);
 
     public HttpStatus updatePost(long id, Post PostRequest);
+
+    List<Post> listPostByUser(long userId);
 }

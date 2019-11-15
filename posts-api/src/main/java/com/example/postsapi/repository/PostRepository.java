@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface PostRepository extends CrudRepository<Post, Long> {
     List<Post> findByTitleContaining(String text);
+    List<Post> findByUserId(long userId);
 //    List<Post> findByLengthBetween(int min, int max);
 //    List<Post> findByContentContaining(String content);
 }

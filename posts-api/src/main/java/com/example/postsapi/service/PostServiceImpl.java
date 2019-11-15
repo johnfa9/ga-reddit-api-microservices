@@ -51,8 +51,9 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public HttpStatus createPost(Post Post) {
-        postRepository.save(Post);
+    public HttpStatus createPost(Post post, long userId) {
+        post.setUserId(userId);
+        postRepository.save(post);
         return HttpStatus.OK;
     }
 
@@ -65,5 +66,10 @@ public class PostServiceImpl implements PostService{
 //        Post.setContent(PostRequest.getContent());
         postRepository.save(Post);
         return HttpStatus.OK;
+    }
+
+    @Override
+    public List<Post> listPostByUser(long userId) {
+        return postRepository.findByUserId(userId);
     }
 }
