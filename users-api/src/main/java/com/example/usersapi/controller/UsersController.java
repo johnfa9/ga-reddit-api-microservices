@@ -62,7 +62,7 @@ public class UsersController {
     //testing ok
 
     @GetMapping("/{userId}/posts")
-    public List<Post> getSongsByUser(@PathVariable long userId){
+    public List<Post> getPostsByUser(@PathVariable long userId){
         return userPostService.getPostsByUser(userId);
     }
 
