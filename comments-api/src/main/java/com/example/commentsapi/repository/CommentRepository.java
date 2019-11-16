@@ -9,6 +9,9 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends CrudRepository<Comment, Long> {
     List<Comment> findByTextContaining(String text);
+    List<Comment> findByUserId(long userId);
+    List<Comment> findByPostId(long postId);
+    //    List<Post> findByUserId(long userId);
 //    List<Post> findByLengthBetween(int min, int max);
 //    List<Post> findByContentContaining(String content);
 }

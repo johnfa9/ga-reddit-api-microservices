@@ -50,9 +50,19 @@ public class CommentServiceImpl implements CommentService{
         return HttpStatus.OK;
     }
 
+
+//    @Override
+////    public HttpStatus createPost(Post post, long userId) {
+////        post.setUserId(userId);
+////        postRepository.save(post);
+////        return HttpStatus.OK;
+////    }
+
     @Override
-    public HttpStatus createComment(Comment Comment) {
-        commentRepository.save(Comment);
+    public HttpStatus createComment(Comment comment, long userId) {
+        // search for post id in my repository/db
+        comment.setUserId(userId);
+        commentRepository.save(comment);
         return HttpStatus.OK;
     }
 
@@ -65,5 +75,15 @@ public class CommentServiceImpl implements CommentService{
 //        Post.setContent(PostRequest.getContent());
         commentRepository.save(Comment);
         return HttpStatus.OK;
+    }
+
+    @Override
+    public List<Comment> listCommentsByUser(long userId) {
+        return commentRepository.findByUserId(userId);
+    }
+
+    @Override
+    public List<Comment> listCommentsByPost(long postId) {
+        return commentRepository.findByPostId(postId);
     }
 }

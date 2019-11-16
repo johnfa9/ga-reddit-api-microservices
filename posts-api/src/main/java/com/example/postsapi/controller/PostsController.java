@@ -24,6 +24,11 @@ public class PostsController {
         return postService.searchById(id);
     }
 
+    @GetMapping("/view/user")
+    public List<Post> listPostByUser(@RequestHeader("userid") long userId) {
+        return postService.listPostByUser(userId);
+    }
+
 //    @GetMapping("/searchTitle/{title}")
 //    public Iterable<Post> searchByTitle(@PathVariable String title) {
 //        return postService.searchByTitle(title);
@@ -45,8 +50,8 @@ public class PostsController {
     }
 
     @PostMapping("/create")
-    public HttpStatus createPost(@RequestBody Post Post) {
-        return postService.createPost(Post);
+    public HttpStatus createPost(@RequestBody Post Post, @RequestHeader("userid") long userId) {
+        return postService.createPost(Post, userId);
     }
 
     @PatchMapping("/update/{id}")

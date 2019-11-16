@@ -5,7 +5,9 @@ import com.example.usersapi.model.JwtResponse;
 import com.example.usersapi.model.User;
 import com.example.usersapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,10 +44,19 @@ public class UsersController {
     }
     //testing error
 
+//    @RequestHeader()
     @PostMapping("/login")
     public JwtResponse login(@RequestBody User user) {
         return userService.login(user);
     }
+
+//    @RequestMapping(value = "/login", method = RequestMethod.OPTIONS)
+//    ResponseEntity<?> loginOptions () {
+//        return ResponseEntity
+//                .ok()
+//                .allow(HttpMethod.POST)
+//                .build();
+//    }
 
     @PatchMapping("/update/{id}")
     public HttpStatus updateUser(@PathVariable long id, @RequestBody User userRequest, @RequestHeader("userid") long userId) {
