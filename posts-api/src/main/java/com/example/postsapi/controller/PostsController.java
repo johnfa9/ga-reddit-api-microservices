@@ -24,7 +24,7 @@ public class PostsController {
         return postService.searchById(id);
     }
 
-    @GetMapping("view/user")
+    @GetMapping("/view/user")
     public List<Post> listPostByUser(@RequestHeader("userid") long userId) {
         return postService.listPostByUser(userId);
     }

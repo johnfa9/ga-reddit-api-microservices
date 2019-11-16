@@ -76,4 +76,14 @@ public class CommentServiceImpl implements CommentService{
         commentRepository.save(Comment);
         return HttpStatus.OK;
     }
+
+    @Override
+    public List<Comment> listCommentsByUser(long userId) {
+        return commentRepository.findByUserId(userId);
+    }
+
+    @Override
+    public List<Comment> listCommentsByPost(long postId) {
+        return commentRepository.findByPostId(postId);
+    }
 }
