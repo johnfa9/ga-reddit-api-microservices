@@ -43,6 +43,8 @@ public class UserServiceImpl implements UserService{
         return HttpStatus.OK;
     }
 
+    
+
     @Override
     public HttpStatus updateUser(long id, User userRequest) {
         User user = userRepository.findById(id).get();
