@@ -1,6 +1,6 @@
 package com.example.usersapi.controller;
 
-
+import com.example.usersapi.model.JwtResponse;
 import com.example.usersapi.model.User;
 import com.example.usersapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,16 +34,22 @@ public class UsersController {
         return userService.deleteUser(id);
     }
 
-    @PostMapping("/create")
-    public HttpStatus createUser(@RequestBody User user) {
+//    @PostMapping("/create")
+//    public HttpStatus createUser(@RequestBody User user) {
+//        return userService.createUser(user);
+//    }
 
+    @PostMapping("/create")
+    public JwtResponse createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
-    //testing error
 
     @PatchMapping("/update/{id}")
     public HttpStatus updateUser(@PathVariable long id, @RequestBody User userRequest) {
         return userService.updateUser(id, userRequest);
     }
-    //testing ok
+    @PostMapping("/login")
+    public JwtResponse login(@RequestBody User user) {
+        return userService.login(user);
+    }
 }

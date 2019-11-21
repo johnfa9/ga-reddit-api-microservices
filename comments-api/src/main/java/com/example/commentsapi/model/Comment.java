@@ -17,6 +17,15 @@ public class Comment {
     @Column(name="_text")
     private String text;
 
+    @Column(name="post_id")
+    private int post_id;
+
+    @Column(name="username")
+    private String username;
+
+    @Column(name="user_id")
+    private int user_id;
+
     public Comment() {}
 
     //public Post(long id, String title, int length, String content)
