@@ -29,11 +29,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Iterable<User> getAll() {
+
         return userRepository.findAll();
     }
 
     @Override
     public User searchById(long id) {
+
         return userRepository.findById(id).get();
     }
 

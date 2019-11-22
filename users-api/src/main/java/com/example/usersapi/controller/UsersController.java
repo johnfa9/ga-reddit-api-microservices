@@ -15,11 +15,13 @@ public class UsersController {
 
     @GetMapping("/all")
     public Iterable<User> getAll() {
+
         return userService.getAll();
     }
 
     @GetMapping("/view/{id}")
     public User searchById(@PathVariable long id) {
+
         return userService.searchById(id);
     }
 
