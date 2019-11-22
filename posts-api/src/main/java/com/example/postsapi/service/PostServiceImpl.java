@@ -22,7 +22,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public Post searchById(long id) {
-
+ 
         return postRepository.findById(id).get();
     }
 
@@ -51,19 +51,19 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public HttpStatus createPost(Post Post) {
-        postRepository.save(Post);
+    public HttpStatus createPost(Post post) {
+        postRepository.save(post);
         return HttpStatus.OK;
     }
 
     @Override
-    public HttpStatus updatePost(long id, Post PostRequest) {
-        Post Post = postRepository.findById(id).get();
-        Post.setTitle(PostRequest.getTitle());
-        Post.setDescription(PostRequest.getDescription());
+    public HttpStatus updatePost(long id, Post postRequest) {
+        Post post = postRepository.findById(id).get();
+        post.setTitle(postRequest.getTitle());
+        post.setDescription(postRequest.getDescription());
 //        Post.setLength(PostRequest.getLength());
 //        Post.setContent(PostRequest.getContent());
-        postRepository.save(Post);
+        postRepository.save(post);
         return HttpStatus.OK;
     }
 }

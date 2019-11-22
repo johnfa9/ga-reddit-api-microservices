@@ -9,72 +9,23 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
-//    @Column(name = "duration")
-//    private int length;
-//    private String content;
-
-    @Column(name="_title")
+    @Column(name="title")
     private String title;
 
-    @Column(name="_description")
+    @Column(name="description")
     private String description;
 
     @Column(name="user_id")
-    private String user_id;
+    private int userId;
 
     public Post() {}
 
-    //public Post(long id, String title, int length, String content)
-    public Post(long id, String title, String description) {
-        this.id = id;
-        this.title=title;
-        this.description=description;
-
-//        this.title = title;
-//        this.length = length;
-//        this.content = content;
+    public int getUserId() {
+        return userId;
     }
 
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
-//        this.id = id;
-//    }
-//
-//    public String getTitle() {
-//        return title;
-//    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public int getLength() {
-//        return length;
-//    }
-//
-//    public void setLength(int length) {
-//        this.length = length;
-//    }
-//
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
-
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public long getId() {

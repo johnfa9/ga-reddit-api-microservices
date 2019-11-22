@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class PostsController {
+public class PostController {
 
     @Autowired
     private PostService postService;
@@ -41,12 +41,14 @@ public class PostsController {
 
     @DeleteMapping("/delete/{id}")
     public HttpStatus deletePost(@PathVariable long id) {
+
         return postService.deletePost(id);
     }
 
     @PostMapping("/create")
-    public HttpStatus createPost(@RequestBody Post Post) {
-        return postService.createPost(Post);
+    public HttpStatus createPost(@RequestBody Post post) {
+
+        return postService.createPost(post);
     }
 
     @PatchMapping("/update/{id}")

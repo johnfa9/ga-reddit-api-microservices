@@ -9,67 +9,43 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
-//    @Column(name = "duration")
-//    private int length;
-//    private String content;
-
-    @Column(name="_text")
+    @Column(name="text")
     private String text;
 
     @Column(name="post_id")
-    private int post_id;
+    private int postId;
 
     @Column(name="username")
     private String username;
 
     @Column(name="user_id")
-    private int user_id;
+    private int userId;
 
     public Comment() {}
 
-    //public Post(long id, String title, int length, String content)
-    public Comment(long id, String text) {
-        this.id = id;
-        this.text=text;
-
-//        this.title = title;
-//        this.length = length;
-//        this.content = content;
+    public int getPostId() {
+        return postId;
     }
 
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
-//        this.id = id;
-//    }
-//
-//    public String getTitle() {
-//        return title;
-//    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public int getLength() {
-//        return length;
-//    }
-//
-//    public void setLength(int length) {
-//        this.length = length;
-//    }
-//
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public long getId() {
         return id;

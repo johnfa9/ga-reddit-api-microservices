@@ -41,12 +41,15 @@ public class CommentsController {
 
     @DeleteMapping("/delete/{id}")
     public HttpStatus deleteComment(@PathVariable long id) {
+
         return commentService.deleteComment(id);
     }
 
     @PostMapping("/create")
-    public HttpStatus deleteComment(@RequestBody Comment Comment) {
-        return commentService.createComment(Comment);
+    public HttpStatus createComment(@RequestHeader("userid") int userId, @RequestBody Comment comment) {
+        System.out.println(userId);
+        comment.setUserId(userId);
+        return commentService.createComment(comment);
     }
 
     @PatchMapping("/update/{id}")

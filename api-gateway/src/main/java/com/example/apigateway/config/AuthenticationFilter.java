@@ -32,9 +32,10 @@ public class AuthenticationFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         String un = SecurityContextHolder.getContext().getAuthentication().getName();
         UserBean user = userRepository.getUserByUsername(un);
-        if(user != null)
+        if(user != null) {
             ctx.addZuulRequestHeader("userid", String.valueOf(user.getId()));
-        ctx.addZuulRequestHeader("userName", String.valueOf(user.getUsername()));
+            ctx.addZuulRequestHeader("userName", String.valueOf(user.getUsername()));
+        }
         return null;
     }
 }
