@@ -22,7 +22,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public Post searchById(long id) {
- 
+
         return postRepository.findById(id).get();
     }
 
